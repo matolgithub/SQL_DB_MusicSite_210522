@@ -82,9 +82,23 @@ class Sqldb_Musicsite:
                 print(f"String №{count}. Insert data values in a table: {req.strip()}")
                 req = ''
 
-
     def select_tabdata(self):
-        pass
+        connect = Sqldb_Musicsite.db_connect(Sqldb_Musicsite(data_base='sql_db_210522', user='user_210522'))
+        req = ''
+        count_req = 0
+        with open('Script_SELECT_SQL_200522.sql', 'r') as file:
+            string_list = file.readlines()
+        print('*' * 67, 'EXECUTIVE PART', '*' * 67)
+        for index in range(1, len(string_list) + 2):
+            if index % 3 != 0:
+                req += f' {string_list[index - 1].strip()}'
+            else:
+                count_req += 1
+                sel = connect.execute(req.strip()).fetchall()
+                print(f"Task №{count_req}. --- {req.strip()}")
+                print(f'The selection result №{count_req} is:\n{sel}', '\n', '*' * 150)
+                req = ''
 
 if __name__ == '__main__':
-    Sqldb_Musicsite.insert_tabvalues(Sqldb_Musicsite('sql_db_210522', 'user_210522'))
+    # Sqldb_Musicsite.insert_tabvalues(Sqldb_Musicsite('sql_db_210522', 'user_210522'))
+    Sqldb_Musicsite.select_tabdata(Sqldb_Musicsite('sql_db_210522', 'user_210522'))

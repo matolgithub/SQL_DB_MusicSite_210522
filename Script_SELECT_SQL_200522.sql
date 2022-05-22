@@ -14,7 +14,4 @@ SELECT singer_name FROM singer_list
 	WHERE singer_name NOT LIKE '%% %%';
 
 SELECT track_name FROM track_list
-	WHERE track_name LIKE '%%My%%' 
-	OR track_name LIKE '%%my%%'
-	OR track_name LIKE '%%Мой%%'
-	OR track_name LIKE '%%мой%%'; 
+	WHERE track_name LIKE '%%My%%' OR track_name LIKE '%%my%%' OR track_name LIKE '%%Мой%%' OR track_name LIKE '%%мой%%'; 
