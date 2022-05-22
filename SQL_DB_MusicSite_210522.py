@@ -1,6 +1,6 @@
 import sqlalchemy
 from sqlalchemy_utils import database_exists, create_database
-from pprint import pprint
+
 
 class Sqldb_Musicsite:
     def __init__(self, data_base, user):
@@ -12,6 +12,18 @@ class Sqldb_Musicsite:
         with open('sqlpsw.jpg', 'r') as file:
             psw = file.read().strip()
         return psw
+
+    def start_dialog(self):
+        while True:
+            qst = input('Hello! Do you want to create Db and User? (Y/N): ')
+            if qst.lower() == 'y':
+                Sqldb_Musicsite.db_user_create(Sqldb_Musicsite(data_base='sql_db_210522', user='user_210522'))
+                break
+            elif qst.lower() == 'n':
+                print('Good by!')
+                break
+            else:
+                print('Something wrong! Try input again!')
 
     def db_user_create(self):
         pswd = Sqldb_Musicsite.sql_psw(Sqldb_Musicsite(data_base='sql_db_210522', user='user_210522'))
@@ -27,9 +39,18 @@ class Sqldb_Musicsite:
         except sqlalchemy.exc.ProgrammingError:
             print(f'User "{self.user}" already exist.')
         connection.execute(f"ALTER DATABASE {self.data_base} OWNER TO {self.user};")
+        while True:
+            qst = input('Ok, do you want to create tables? (Y/N): ')
+            if qst.lower() == 'y':
+                Sqldb_Musicsite.create_tables(Sqldb_Musicsite(data_base='sql_db_210522', user='user_210522'))
+                break
+            elif qst.lower() == 'n':
+                print('Good by!')
+                break
+            else:
+                print('Something wrong! Try input again!')
 
     def db_connect(self):
-        Sqldb_Musicsite.db_user_create(Sqldb_Musicsite(data_base='sql_db_210522', user='user_210522'))
         pswd = Sqldb_Musicsite.sql_psw(Sqldb_Musicsite)
         user_db = f'postgresql://{self.user}:{pswd}@localhost:5432/{self.data_base}'
         main_engine = sqlalchemy.create_engine(user_db)
@@ -65,9 +86,18 @@ class Sqldb_Musicsite:
                 req = f"{sql_table} {tbl_name} ({tbl_col[0]} {tbl_col[1]} {tbl_col[2]});"
             connect.execute(req)
             print(f"Request is being made to create a table:\n{req}")
+        while True:
+            qst = input('Ok, do you want to insert data values in tables? (Y/N): ')
+            if qst.lower() == 'y':
+                Sqldb_Musicsite.insert_tabvalues(Sqldb_Musicsite(data_base='sql_db_210522', user='user_210522'))
+                break
+            elif qst.lower() == 'n':
+                print('Good by!')
+                break
+            else:
+                print('Something wrong! Try input again!')
 
     def insert_tabvalues(self):
-        Sqldb_Musicsite.create_tables(Sqldb_Musicsite('sql_db_210522', 'user_210522'))
         connect = Sqldb_Musicsite.db_connect(Sqldb_Musicsite(data_base='sql_db_210522', user='user_210522'))
         req = ''
         count = 0
@@ -81,6 +111,16 @@ class Sqldb_Musicsite:
                 connect.execute(req.strip())
                 print(f"String №{count}. Insert data values in a table: {req.strip()}")
                 req = ''
+        while True:
+            qst = input('Ok, do you want to execute tasks with select data in tables? (Y/N): ')
+            if qst.lower() == 'y':
+                Sqldb_Musicsite.select_tabdata(Sqldb_Musicsite(data_base='sql_db_210522', user='user_210522'))
+                break
+            elif qst.lower() == 'n':
+                print('Good by!')
+                break
+            else:
+                print('Something wrong! Try input again!')
 
     def select_tabdata(self):
         connect = Sqldb_Musicsite.db_connect(Sqldb_Musicsite(data_base='sql_db_210522', user='user_210522'))
@@ -98,7 +138,8 @@ class Sqldb_Musicsite:
                 print(f"Task №{count_req}. --- {req.strip()}")
                 print(f'The selection result №{count_req} is:\n{sel}', '\n', '*' * 150)
                 req = ''
+        print('Thanks, that is all! Good luck!')
+
 
 if __name__ == '__main__':
-    # Sqldb_Musicsite.insert_tabvalues(Sqldb_Musicsite('sql_db_210522', 'user_210522'))
-    Sqldb_Musicsite.select_tabdata(Sqldb_Musicsite('sql_db_210522', 'user_210522'))
+    Sqldb_Musicsite.start_dialog(Sqldb_Musicsite)
