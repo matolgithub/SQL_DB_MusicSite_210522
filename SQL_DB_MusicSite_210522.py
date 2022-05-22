@@ -67,10 +67,24 @@ class Sqldb_Musicsite:
             print(f"Request is being made to create a table:\n{req}")
 
     def insert_tabvalues(self):
-        pass
+        Sqldb_Musicsite.create_tables(Sqldb_Musicsite('sql_db_210522', 'user_210522'))
+        connect = Sqldb_Musicsite.db_connect(Sqldb_Musicsite(data_base='sql_db_210522', user='user_210522'))
+        req = ''
+        count = 0
+        with open('Script_Insert_SQL_190522.sql', 'r') as file:
+            string_list = file.readlines()
+        for index in range(1, len(string_list) + 2):
+            if index % 3 != 0:
+                req += f' {string_list[index - 1].strip()}'
+            else:
+                count += 1
+                connect.execute(req.strip())
+                print(f"String №{count}. Insert data values in a table: {req.strip()}")
+                req = ''
+
 
     def select_tabdata(self):
         pass
 
 if __name__ == '__main__':
-    Sqldb_Musicsite.create_tables(Sqldb_Musicsite('sql_db_210522', 'user_210522'))
+    Sqldb_Musicsite.insert_tabvalues(Sqldb_Musicsite('sql_db_210522', 'user_210522'))

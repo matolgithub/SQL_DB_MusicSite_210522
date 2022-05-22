@@ -224,106 +224,106 @@ INSERT INTO collection(collection_name, collection_year)
 	VALUES('Best collection number 15', 2022);
 
 INSERT INTO style_singer(style_id, singer_id)
-	VALUES(33, 33);
+	VALUES(1, 1);
 
 INSERT INTO style_singer(style_id, singer_id)
-	VALUES(34, 34);
+	VALUES(2, 2);
 
 INSERT INTO style_singer(style_id, singer_id)
-	VALUES(35, 35);
+	VALUES(3, 3);
 
 INSERT INTO style_singer(style_id, singer_id)
-	VALUES(36, 36);
+	VALUES(4, 4);
 
 INSERT INTO style_singer(style_id, singer_id)
-	VALUES(37, 37);
+	VALUES(5, 5);
 
 INSERT INTO style_singer(style_id, singer_id)
-	VALUES(38, 38);
+	VALUES(6, 6);
 
 INSERT INTO style_singer(style_id, singer_id)
-	VALUES(39, 39);
+	VALUES(7, 7);
 
 INSERT INTO style_singer(style_id, singer_id)
-	VALUES(40, 40);
+	VALUES(8, 8);
 
 INSERT INTO style_singer(style_id, singer_id)
-	VALUES(41, 41);
+	VALUES(9, 9);
 
 INSERT INTO style_singer(style_id, singer_id)
-	VALUES(42, 42);
+	VALUES(10, 10);
 
 INSERT INTO style_singer(style_id, singer_id)
-	VALUES(33, 43);
+	VALUES(1, 11);
 
 INSERT INTO style_singer(style_id, singer_id)
-	VALUES(34, 44);
+	VALUES(2, 12);
 
 INSERT INTO style_singer(style_id, singer_id)
-	VALUES(35, 45);
+	VALUES(3, 13);
 
 INSERT INTO style_singer(style_id, singer_id)
-	VALUES(36, 46);
+	VALUES(4, 14);
 
 INSERT INTO style_singer(style_id, singer_id)
-	VALUES(37, 47);
+	VALUES(5, 15);
 
 INSERT INTO style_singer(style_id, singer_id)
-	VALUES(38, 48);
+	VALUES(6, 16);
 
 INSERT INTO style_singer(style_id, singer_id)
-	VALUES(39, 49);
+	VALUES(7, 17);
 
 INSERT INTO singer_album(album_id, singer_id)
-	VALUES(1, 33);
+	VALUES(1, 1);
 
 INSERT INTO singer_album(album_id, singer_id)
-	VALUES(2, 34);
+	VALUES(2, 2);
 
 INSERT INTO singer_album(album_id, singer_id)
-	VALUES(3, 35);
+	VALUES(3, 3);
 
 INSERT INTO singer_album(album_id, singer_id)
-	VALUES(4, 36);
+	VALUES(4, 4);
 
 INSERT INTO singer_album(album_id, singer_id)
-	VALUES(5, 37);
+	VALUES(5, 5);
 
 INSERT INTO singer_album(album_id, singer_id)
-	VALUES(6, 38);
+	VALUES(6, 6);
 
 INSERT INTO singer_album(album_id, singer_id)
-	VALUES(7, 39);
+	VALUES(7, 7);
 
 INSERT INTO singer_album(album_id, singer_id)
-	VALUES(8, 40);
+	VALUES(8, 8);
 
 INSERT INTO singer_album(album_id, singer_id)
-	VALUES(9, 41);
+	VALUES(9, 9);
 
 INSERT INTO singer_album(album_id, singer_id)
-	VALUES(10, 42);
+	VALUES(10, 10);
 
 INSERT INTO singer_album(album_id, singer_id)
-	VALUES(11, 43);
+	VALUES(11, 11);
 
 INSERT INTO singer_album(album_id, singer_id)
-	VALUES(12, 44);
+	VALUES(12, 12);
 
 INSERT INTO singer_album(album_id, singer_id)
-	VALUES(13, 45);
+	VALUES(13, 13);
 
 INSERT INTO singer_album(album_id, singer_id)
-	VALUES(14, 46);
+	VALUES(14, 14);
 
 INSERT INTO singer_album(album_id, singer_id)
-	VALUES(15, 47);
+	VALUES(15, 15);
 
 INSERT INTO singer_album(album_id, singer_id)
-	VALUES(1, 48);
+	VALUES(1, 16);
 
 INSERT INTO singer_album(album_id, singer_id)
-	VALUES(2, 49);
+	VALUES(2, 17);
 	
 INSERT INTO collection_track(collection_id, track_id)
 	VALUES(1, 1);
